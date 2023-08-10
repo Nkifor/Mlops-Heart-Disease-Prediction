@@ -6,7 +6,7 @@ __pycache__/
 secrets.yaml
 # C extensions
 *.so
-
+mlruns/*
 # Distribution / packaging
 .Python
 build/

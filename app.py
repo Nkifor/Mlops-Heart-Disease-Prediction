@@ -12,6 +12,8 @@ from urllib.parse import urlparse
 import logging
 import yaml
 from mlflow.models.signature import infer_signature
+from sklearn.model_selection import GridSearchCV
+from sklearn.preprocessing import StandardScaler
 
 
 ## Logging
@@ -42,19 +44,37 @@ with open("config.yaml", "r") as f:
 
 
 
+
+
 try:
         data_frame = pd.read_csv(data_path, sep=",")
 except Exception as e:
         logger.exception(
             "Unable to get training & test CSV, check your internet connection. Error: %s", e
         )
+## Drop of faulty data
 
+
+
+#data_frame = data_frame[data_frame['ca'] < 4] #drop the wrong ca values
+#data_frame = data_frame[data_frame['thal'] > 0] # drop the wong thal value
+
+#data_frame = data_frame.drop(['chol',],axis = 1)
 
 # Split the data into training and test sets. (0.75, 0.25) split.
+#print("Splitting data into train and test sets.")
+#print(f'The length after dropped values of the data now is {len(data_frame)} instead of 303!')
 train, test = train_test_split(data_frame)
 
 with mlflow.start_run(run_name="ExperElasticHeartDiseaseModel") as run:
     # The predicted column is "quality" which is a scalar from [3, 9]
+
+        # Defined the hyperparameter grid to search over
+        param_grid = {
+        'alpha': [1e-4, 1e-3, 1e-2, 1e-1, 1],
+        'l1_ratio': [0, 0.25, 0.5, 0.75, 1]
+        }
+
         train_x = train.drop(["target"], axis=1)
         test_x = test.drop(["target"], axis=1)
         train_y = train[["target"]]
@@ -63,11 +83,32 @@ with mlflow.start_run(run_name="ExperElasticHeartDiseaseModel") as run:
         alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
         l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
 
+        #Scale data object:
+        scaler = StandardScaler()
 
-        lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
-        lr.fit(train_x, train_y)
+        scaler.fit(train_x)
 
-        predicted_disease = lr.predict(test_x)
+        train_x_scaled = scaler.transform(train_x)
+        test_x_scaled = scaler.transform(test_x)
+
+
+        lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio,  random_state=42)
+
+        # Create a grid search object
+        grid_search = GridSearchCV(
+            lr,
+            param_grid,
+            scoring='neg_mean_absolute_error',
+            cv=227,
+            n_jobs=-1,
+            verbose=1
+            )
+
+        grid_search.fit(train_x_scaled, train_y)
+
+        print(f"Best hyperparameters: {grid_search.best_params_}")
+
+        predicted_disease = grid_search.predict(test_x_scaled)
 
         (rmse, mae, r2, mse) = eval_metrics(test_y, predicted_disease)
 
@@ -83,9 +124,9 @@ with mlflow.start_run(run_name="ExperElasticHeartDiseaseModel") as run:
         mlflow.log_metric("mae", mae)
 
 
-        predictions = lr.predict(train_x)
+        predictions = grid_search.predict(train_x_scaled)
 
-        mlflow.sklearn.log_model(lr,  artifact_path="model")
+        mlflow.sklearn.log_model(grid_search,  artifact_path="model")
         signature = infer_signature(train_x, predictions)
         mlflow.log_metric("mse", mse)
 

@@ -1,6 +1,17 @@
 # Mlops Heart Disease Main Factor Prediction
 
-
+## Steps to reproduce project:
+ 1.  clone repo
+ 2.  create iam user name
+ 3.  create group of policies with full access to AmazonSageMaker and ECR and assign user to group
+ 4.  run console with command ```aws configure`` and provide information from user security credential:
+    - access key,
+    - secret key,
+    - check default region of aws
+    - default output format: json
+ 5.  check if mlflow user ui is shown correctly by typing: ```mlflow ui``` in console
+ 6.  run ```python app.py``` and check if model is shown correctly in mlflow ui(make sure that other mlflow session are closed)
+ 7.
 
 
 ## Data Labels and wider description:
