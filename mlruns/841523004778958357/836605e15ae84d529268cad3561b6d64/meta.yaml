@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Edu/Python/MLOPS_projects/mlops_prediction_Elasticnet_docker_mlflow_ecr_sagemaker/mlruns/841523004778958357/836605e15ae84d529268cad3561b6d64/artifacts
+end_time: 1691631028971
+entry_point_name: ''
+experiment_id: '841523004778958357'
+lifecycle_stage: active
+run_id: 836605e15ae84d529268cad3561b6d64
+run_name: placid-calf-235
+run_uuid: 836605e15ae84d529268cad3561b6d64
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691631028940
+status: 3
+tags: []
+user_id: Admin

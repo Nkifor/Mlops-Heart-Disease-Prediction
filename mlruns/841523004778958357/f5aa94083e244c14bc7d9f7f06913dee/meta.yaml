@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Edu/Python/MLOPS_projects/mlops_prediction_Elasticnet_docker_mlflow_ecr_sagemaker/mlruns/841523004778958357/f5aa94083e244c14bc7d9f7f06913dee/artifacts
+end_time: 1691631229923
+entry_point_name: ''
+experiment_id: '841523004778958357'
+lifecycle_stage: active
+run_id: f5aa94083e244c14bc7d9f7f06913dee
+run_name: ExperElasticHeartDiseaseModel
+run_uuid: f5aa94083e244c14bc7d9f7f06913dee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691631226377
+status: 3
+tags: []
+user_id: Admin

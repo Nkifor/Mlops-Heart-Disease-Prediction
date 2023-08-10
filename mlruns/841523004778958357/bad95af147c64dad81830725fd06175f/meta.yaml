@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Edu/Python/MLOPS_projects/mlops_prediction_Elasticnet_docker_mlflow_ecr_sagemaker/mlruns/841523004778958357/bad95af147c64dad81830725fd06175f/artifacts
+end_time: 1691629974991
+entry_point_name: ''
+experiment_id: '841523004778958357'
+lifecycle_stage: active
+run_id: bad95af147c64dad81830725fd06175f
+run_name: agreeable-bird-656
+run_uuid: bad95af147c64dad81830725fd06175f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1691629974959
+status: 3
+tags: []
+user_id: Admin

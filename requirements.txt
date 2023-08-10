@@ -1,0 +1,6 @@
+
+mlflow==2.5.0
+pandas
+scikit-learn
+awscli
+boto3

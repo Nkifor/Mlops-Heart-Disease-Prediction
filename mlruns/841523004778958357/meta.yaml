@@ -1,0 +1,6 @@
+artifact_location: file:///C:/Edu/Python/MLOPS_projects/mlops_prediction_Elasticnet_docker_mlflow_ecr_sagemaker/mlruns/841523004778958357
+creation_time: 1691629703360
+experiment_id: '841523004778958357'
+last_update_time: 1691629703360
+lifecycle_stage: active
+name: ElasticHeartDiseaseModel
