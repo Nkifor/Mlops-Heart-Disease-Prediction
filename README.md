@@ -1,4 +1,4 @@
-# Mlops Heart Disease Main Factor Prediction
+# Mlops Heart Disease Prediction
 
 ## Steps to reproduce project:
  1.  clone repo
@@ -11,7 +11,12 @@
     - default output format: json
  5.  check if mlflow user ui is shown correctly by typing: ```mlflow ui``` in console
  6.  run ```python app.py``` and check if model is shown correctly in mlflow ui(make sure that other mlflow session are closed)
- 7.
+ 7.  create docker image in ECR by finding path of model in mflow and after setting this folder in terminal then run
+     ```sagemaker build-and-push-container```
+ 8.  get your aws service id and save it to provide in deploy.py file by typing command
+    ```aws sts get-caller-identity --query Account --output text```
+ 9. create role with policy AmazonSageMakerFullAccess and save arn_id to provide in deploy.py file from created role
+
 
 
 ## Data Labels and wider description:
