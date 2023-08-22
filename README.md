@@ -6,7 +6,7 @@ Project present implementation of Lasso Regression model including factors causi
 Model is trained, cross validated and by experimentation chosen the best one.
 Selected model is deployed as Sagemaker endpoint.
 
-## Main Technology used:
+## Main Technologies used:
 
 
 ![Sagemaker](https://img.shields.io/badge/Sagemaker-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
