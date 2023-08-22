@@ -44,26 +44,15 @@ with open("config.yaml", "r") as f:
 
 
 
-
-
 try:
         data_frame = pd.read_csv(data_path, sep=",")
 except Exception as e:
         logger.exception(
             "Unable to get training & test CSV, check your internet connection. Error: %s", e
         )
-## Drop of faulty data
 
 
 
-#data_frame = data_frame[data_frame['ca'] < 4] #drop the wrong ca values
-#data_frame = data_frame[data_frame['thal'] > 0] # drop the wong thal value
-
-#data_frame = data_frame.drop(['chol',],axis = 1)
-
-# Split the data into training and test sets. (0.75, 0.25) split.
-#print("Splitting data into train and test sets.")
-#print(f'The length after dropped values of the data now is {len(data_frame)} instead of 303!')
 train, test = train_test_split(data_frame)
 
 with mlflow.start_run(run_name="ExperElasticHeartDiseaseModel") as run:

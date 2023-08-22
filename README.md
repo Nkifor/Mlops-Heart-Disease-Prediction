@@ -1,5 +1,12 @@
 # Mlops Heart Disease Prediction
 
+## Project description:
+
+Project present implementation of Lasso Regression model including factors causing heart disease.
+Model is trained, cross validated and by experimentation chosen the best one.
+Selected model is deployed as Sagemaker endpoint.
+
+
 ## Steps to reproduce project:
  1.  clone repo
  2.  create iam user name

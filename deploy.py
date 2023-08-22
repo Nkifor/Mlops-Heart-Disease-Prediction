@@ -10,7 +10,7 @@ import yaml
 session = boto3.Session(profile_name='prediction_instalation')
 credentials = session.get_credentials()
 
-# Przypisz dane uwierzytelniające do zmiennych
+# Credencials set
 access_key = credentials.access_key
 secret_key = credentials.secret_key
 #aws_id = credentials.AWS_ID
@@ -19,8 +19,6 @@ secret_key = credentials.secret_key
 #token = credentials.token
 print(f'Access key: {access_key}')
 print(f'Secret key: {secret_key}')
-
-#
 
 
 #try:
@@ -38,30 +36,18 @@ print(f'Secret key: {secret_key}')
 #print(aws_id)
 #print(aws_arn)
 
-target_uri = 'sagemaker:/eu-central-1/arn:aws:iam::325653208527:role/aws-sagemaker-for-deploy-ml-model'
+target_uri = 'sagemaker:/eu-central-1/arn:aws:iam::325....:role/aws-sagemaker-for-deploy-ml-model'
 
 client = mlflow_deployments.get_deploy_client(target_uri)
 
 
 
-
-# Uzyskaj dane uwierzytelniające dla sesji
-#credentials = session.get_credentials()
-#
-## Przypisz dane uwierzytelniające do zmiennych
-#access_key = credentials.access_key
-#secret_key = credentials.secret_key
-##token = credentials.token
-#print(access_key)
-#print(secret_key)
-#
-
 experiment_id = '841523004778958357'
 run_id = '60d6732f62f34285b65a6e689068efdb'
 region = 'eu-central-1'
-aws_id =  '325653208527'
+aws_id =  '325...'
 #f'{aws_id}'
-arn = 'arn:aws:iam::325653208527:role/aws-sagemaker-for-deploy-ml-model'
+arn = 'arn:aws:iam::325.....:role/aws-sagemaker-for-deploy-ml-model'
 #f'{aws_arn}'
 app_name = 'model-heart-application'
 model_uri = f'mlruns/841523004778958357/60d6732f62f34285b65a6e689068efdb/artifacts/model'

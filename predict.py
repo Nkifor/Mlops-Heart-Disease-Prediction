@@ -31,7 +31,7 @@ except Exception as e:
         )
 
 target_uri = "sagemaker"
-#'sagemaker:/eu-central-1/arn:aws:iam::325653208527:role/aws-sagemaker-for-deploy-ml-model'
+#'sagemaker:/eu-central-1/arn:aws:iam::325....:role/aws-sagemaker-for-deploy-ml-model'
 
 
 
@@ -44,6 +44,8 @@ def check_status(app_name):
     endpoint_status = endpoint_description['EndpointStatus']
     return endpoint_status
 
+
+## json approach to get predictions
 
 #def query_endpoint(app_name, input_json):
 #    client = boto3.session.Session().client('sagemaker-runtime', region)
@@ -76,6 +78,7 @@ test_x = test.drop(["target"], axis=1)
 train_y = train[["target"]]
 test_y = test[["target"]]
 
+
 #X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
 
 ## Create test data and make inference from endpoint
@@ -103,10 +106,14 @@ df_converted_to_csv_data = csv_buffer.getvalue()
 #
 #input_json = json.dumps(input_data)
 
+
+
 df_converted_to_csv_data
 #
 sage_client = boto3.client('sagemaker-runtime', region_name=region)
 
+
+## getting response from endpoint
 
 response = sage_client.invoke_endpoint(
     EndpointName=app_name,
