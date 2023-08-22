@@ -6,6 +6,17 @@ Project present implementation of Lasso Regression model including factors causi
 Model is trained, cross validated and by experimentation chosen the best one.
 Selected model is deployed as Sagemaker endpoint.
 
+## Main Technology used:
+
+
+    ![Sagemaker](https://img.shields.io/badge/Sagemaker-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
+    ![mlflow](https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&logo=numpy&logoColor=blue)
+    ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+    ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+    ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+
+
+
 
 ## Steps to reproduce project:
  1.  clone repo
