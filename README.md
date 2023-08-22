@@ -16,8 +16,6 @@ Selected model is deployed as Sagemaker endpoint.
     ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 
 
-
-
 ## Steps to reproduce project:
  1.  clone repo
  2.  create iam user name
